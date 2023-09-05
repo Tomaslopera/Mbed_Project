@@ -139,32 +139,47 @@ int main()
                         string y = coeficientes[1];
                         string z = coeficientes[2];
                         raices(x, y, z);
-                        flag = false;
+                        if (x != "" && y != "" && z != ""){
+                            flag = false;
+                        }
                     }
                 }                
             } else if (tecla == "2"){
                 // Ingrese una Nota
+                string nota = "";
                 bool flag = true;
                 while (flag){
-                    string nota = escribir();
+                    nota = escribir();
                     calculoNota(nota);
-                    if ()
+                    if (nota != ""){
+                        flag = false;
+                    }
                 }
             } else if (tecla == "3"){
-                cout << "Hexadecimal: " << endl;
+                // LED rgb
                 std::string numeroHexadecimal = "";
-                for (int i = 0; i < 6; i++){
-                    cout << "-> " << numeroHexadecimal << endl;
+                int i = 0;
+                bool flag = true;
+                while (flag){
                     numeroHexadecimal += escribir();
-                }
-                char inputHex[7];
-                numeroHexadecimal.copy(inputHex, numeroHexadecimal.length());
-                unsigned int colorValue;
-                if (sscanf(inputHex, "%6x", &colorValue) == 1) {
-                    printf("Valor hexadecimal válido \n");
-                    colorLed(colorValue); // Controla el LED RGB con el valor hexadecimal almacenado
-                } else {
-                    printf("Valor hexadecimal no válido.\n");
+                    if (numeroHexadecimal != ""){
+                        cout << numeroHexadecimal << endl;
+                    }
+                    i++;
+                    if (i == 5){
+                        char inputHex[7];
+                        numeroHexadecimal.copy(inputHex, numeroHexadecimal.length() + 1);
+                        unsigned int colorValue;
+                        if (sscanf(inputHex, "%6x", &colorValue) == 1) {
+                            printf("Valor hexadecimal válido \n");
+                            colorLed(colorValue); // Controla el LED RGB con el valor hexadecimal almacenado
+                        } else {
+                            printf("Valor hexadecimal no válido.\n");
+                        }
+                        if (numeroHexadecimal.length() == 6){
+                            flag = false;
+                        }
+                    }
                 }
             } else {
                 cout << "Número no válido" << endl;
