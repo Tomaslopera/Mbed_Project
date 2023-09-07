@@ -84,7 +84,7 @@ string calculoNota(string nota){
         std::cout << "Nota fuera de rango. Debe estar entre 0 y 10." << std::endl;
     }
     
-    return 0;
+    return "";
 }
 
 
@@ -112,7 +112,7 @@ string raices(string x ,string y, string z){
         std::cout << "Raíces complejas: " << parteReal << " + " << parteImaginaria << "i y " << parteReal << " - " << parteImaginaria << "i" << std::endl;
     }
 
-    return 0;
+    return "";
 }
 
 int main()
@@ -128,18 +128,18 @@ int main()
             cout << tecla << endl;
             if (tecla == "1"){
                 // Ingresa tres coeficientes               
-                string coeficientes[3];
+                std:string coeficientes[3];
                 int i = 0;
                 bool flag = true;
                 while (flag){
-                    coeficientes[i] = escribir();
-                    i++;
+                    coeficientes[i++] = escribir();
                     if (i == 2){
                         string x = coeficientes[0];
                         string y = coeficientes[1];
                         string z = coeficientes[2];
                         raices(x, y, z);
                         if (x != "" && y != "" && z != ""){
+                            i++;
                             flag = false;
                         }
                     }
@@ -150,8 +150,8 @@ int main()
                 bool flag = true;
                 while (flag){
                     nota = escribir();
-                    calculoNota(nota);
                     if (nota != ""){
+                        calculoNota(nota);
                         flag = false;
                     }
                 }
@@ -164,9 +164,9 @@ int main()
                     numeroHexadecimal += escribir();
                     if (numeroHexadecimal != ""){
                         cout << numeroHexadecimal << endl;
+                        i++;
                     }
-                    i++;
-                    if (i == 5){
+                    if (numeroHexadecimal.length() == 6){
                         char inputHex[7];
                         numeroHexadecimal.copy(inputHex, numeroHexadecimal.length() + 1);
                         unsigned int colorValue;
@@ -176,7 +176,7 @@ int main()
                         } else {
                             printf("Valor hexadecimal no válido.\n");
                         }
-                        if (numeroHexadecimal.length() == 6){
+                        if (i == 5){
                             flag = false;
                         }
                     }
