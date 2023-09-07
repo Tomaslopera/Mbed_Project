@@ -176,7 +176,7 @@ int main()
                         } else {
                             printf("Valor hexadecimal no válido.\n");
                         }
-                        if (i == 5){
+                        if (i == 6){
                             flag = false;
                         }
                     }
