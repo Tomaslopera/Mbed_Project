@@ -1,3 +1,6 @@
+## Mbed Project
+
+Es un proyecto elaborado en Keil Srudio con C++ para implementar en la tarjeta arduino FRDM-KL25Z, se necesita de un teclado matricial numérico para poder implementar el código.
 
 **INTEGRANTES:**
 
